@@ -113,6 +113,20 @@ export default function RootLayout({
   return (
     <html lang="es-CL">
       <head>
+        {/* Google Analytics - Inmediatamente después del head */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-R9P4SXE27J"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-R9P4SXE27J');
+          `}
+        </Script>
+        
         <link rel="canonical" href="https://psicologialaserena.cl/" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
@@ -182,20 +196,6 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         {children}
-        
-        {/* Google Analytics */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-R9P4SXE27J"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-R9P4SXE27J');
-          `}
-        </Script>
       </body>
     </html>
   );
